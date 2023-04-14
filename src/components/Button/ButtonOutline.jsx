@@ -7,7 +7,7 @@ const ButtonOutline = ({ onClick, page, children, styles, buttonType }) => {
       <div className='flex justify-center items-center'>
         <Link
           href={`/${page}`}
-          className='py-4 px-8 rounded-lg text-white font-semibold z-10 relative overflow-hidden whitespace-nowrap w-full border border-primary'
+          className='py-4 px-8 rounded-lg text-white font-semibold  relative overflow-hidden whitespace-nowrap w-full border border-primary'
         >
           {children}
         </Link>
@@ -21,7 +21,7 @@ const ButtonOutline = ({ onClick, page, children, styles, buttonType }) => {
       <div className='flex justify-center items-center'>
         <button
           onClick={onClick}
-          className={`py-4 px-8 rounded-lg text-white font-semibold z-10 relative overflow-hidden whitespace-nowrap w-full border border-primary ${styles}  `}
+          className={`py-4 px-8 rounded-lg text-white font-semibold  relative overflow-hidden whitespace-nowrap w-full border border-primary ${styles}  `}
           type={buttonType}
         >
           {children}
