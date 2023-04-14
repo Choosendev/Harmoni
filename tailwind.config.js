@@ -14,6 +14,12 @@ module.exports = {
         background: '#1E1E1E',
         primary: '#6600E8',
       },
+      backgroundImage: {
+        'hero-pattern': "url('/assets/images/header-bg.png')",
+        'gradient-blue-red': 'linear-gradient(to right, #1E40AF, #DC2626)',
+        'gradient-hover':
+          'linear-gradient(90deg, rgba(221, 200, 249, 1) 0%, rgba(221, 200, 249, 1) 100%)',
+      },
     },
   },
   plugins: [],

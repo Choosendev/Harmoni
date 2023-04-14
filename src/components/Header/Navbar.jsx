@@ -19,7 +19,7 @@ const Navbar = () => {
     setOpen((value) => !value);
   };
   return (
-    <div>
+    <div className='fixed top-0 left-0 w-full'>
       <div className='px-8 py-7 relative md:flex md:justify-between md:items-center'>
         <div className='flex justify-between items-center'>
           <div className='flex gap-2'>
