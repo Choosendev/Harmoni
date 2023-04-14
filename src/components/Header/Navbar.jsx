@@ -20,7 +20,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className='px-8 py-7 relative'>
+      <div className='px-8 py-7 relative md:flex md:justify-between md:items-center'>
         <div className='flex justify-between items-center'>
           <div className='flex gap-2'>
             <Image
@@ -33,7 +33,7 @@ const Navbar = () => {
           </div>
           <div>
             {/* HAMBURGER MENU AND CLOSE */}
-            <div type='button' onClick={toggleHandler}>
+            <div type='button' onClick={toggleHandler} className='md:hidden'>
               {!open && <FiMenu size={16} />}
             </div>
           </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
 
         {/* Mobile Screen Nav */}
         {open && (
-          <div className='absolute top-0 left-0 pl-5 h-screen w-screen z-10 bg-background'>
+          <div className='absolute top-0 left-0 pl-5 h-screen w-screen z-10 bg-background md:hidden'>
             {open && (
               <div
                 type='button'
@@ -51,7 +51,7 @@ const Navbar = () => {
                 <AiOutlineCloseCircle className='' size={16} />
               </div>
             )}
-            <nav>
+            <nav className=''>
               <ul className='flex flex-col gap-8'>
                 <li className=' flex item-center gap-[17px]'>
                   <div className='flex items-center'>
@@ -181,39 +181,131 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Desktop Screen Nav */}
-        <nav className='hidden'>
-          <ul className=''>
-            <li className=''>
-              <PageLink
-                class=''
-                page='Home'
-                // selectedPage={selectedPage}
-                // setSelectedPage={setSelectedPage}
-              />
+        {/* DESKTOP NAVIGATION */}
+        <nav className='hidden md:block'>
+          <ul className='flex gap-4 lg:gap-8'>
+            <li className=' flex item-center gap-2'>
+              <div className='flex items-center'>
+                <RiHome5Line />
+              </div>
+              <Link
+                href='/'
+                // className={`${
+                //   selectedPage === lowerCasePage ? 'text-blue' : ''
+                // } hover:text-blue-50`}
+                // onClick={() => setSelectedPage(lowerCasePage)}
+              >
+                Home
+              </Link>
+            </li>
+            <li className=' flex item-center gap-2'>
+              <div className='flex items-center'>
+                <BsCartDash />
+              </div>
+              <Link
+                href='/'
+                // className={`${
+                //   selectedPage === lowerCasePage ? 'text-blue' : ''
+                // } hover:text-blue-50`}
+                // onClick={() => setSelectedPage(lowerCasePage)}
+              >
+                Cart
+              </Link>
+            </li>
+            <li
+              className='flex item-center flex-col relative'
+              onClick={handleUploadListToggle}
+            >
+              <div className='flex  items-center  gap-2'>
+                <RiFileUploadLine fill='white' color='white' />
+                <div className='flex items-center'>
+                  <Link
+                    href='/'
+                    // className={`${
+                    //   selectedPage === lowerCasePage ? 'text-blue' : ''
+                    // } hover:text-blue-50`}
+                    // onClick={() => setSelectedPage(lowerCasePage)}
+                  >
+                    Upload
+                  </Link>
+                  <div className='ml-[10px] flex items-center'>
+                    {hideUploadList ? <BsChevronDown /> : <BsChevronUp />}
+                  </div>
+                </div>
+              </div>
+              {/* SUB LISTS */}
+              {!hideUploadList && (
+                <ul className='pl-8 mt-3.5'>
+                  <li className='mb-3'>
+                    <Link href='/new-upload'>New Upload</Link>
+                  </li>
+                  <li>
+                    <Link href='/myuploads'>My Uploads</Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li className=''>
-              <PageLink
-                class=''
-                page='About'
-                // selectedPage={selectedPage}
-                // setSelectedPage={setSelectedPage}
-              />
+              <Link
+                href='/'
+                // className={`${
+                //   selectedPage === lowerCasePage ? 'text-blue' : ''
+                // } hover:text-blue-50`}
+                // onClick={() => setSelectedPage(lowerCasePage)}
+              >
+                Signin
+              </Link>
             </li>
             <li className=''>
-              <PageLink
-                class=''
-                page=' Portfolio'
-                // selectedPage={selectedPage}
-                // setSelectedPage={setSelectedPage}
-              />
+              <Link
+                href='/'
+                className='px-4 py-2 text-xs border rounded-lg'
+                // className={`${
+                //   selectedPage === lowerCasePage ? 'text-blue' : ''
+                // } hover:text-blue-50`}
+                // onClick={() => setSelectedPage(lowerCasePage)}
+              >
+                Signup
+              </Link>
             </li>
-            <li className=''>
-              <PageLink
-                page='Contact'
-                // selectedPage={selectedPage}
-                // setSelectedPage={setSelectedPage}
-              />
+            <li
+              className='flex item-center flex-col relative'
+              onClick={handleUploadListToggle}
+            >
+              <div className='flex  items-center  gap-2'>
+                <Image
+                  src='/assets/images/person.png'
+                  width={24}
+                  height={24}
+                  alt='user'
+                  className='rounded-full'
+                />{' '}
+                <div className='flex items-center'>
+                  <Link
+                    href='/'
+                    // className={`${
+                    //   selectedPage === lowerCasePage ? 'text-blue' : ''
+                    // } hover:text-blue-50`}
+                    // onClick={() => setSelectedPage(lowerCasePage)}
+                  >
+                    Hi, Muyiwa
+                  </Link>
+                  <div className='ml-[10px] flex items-center'>
+                    {hideUploadList ? <BsChevronDown /> : <BsChevronUp />}
+                  </div>
+                </div>
+              </div>
+              {/* SUB LISTS */}
+              {!hideUploadList && (
+                <ul className='pl-8 mt-3.5'>
+                  <li className='mb-3'>
+                    <Link href='/new-upload'>New Upload</Link>
+                  </li>
+                  <li>
+                    <Link href='/myuploads'>My Uploads</Link>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </nav>
