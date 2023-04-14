@@ -17,8 +17,8 @@ const Hero = () => {
           </div>
 
           {/* SEARCH AND BUTTON */}
-          <div>
-            <div className='relative inline-flex items-center justify-center border rounded-lg border-white w-content p-4'>
+          <div className='inline-flex flex-col'>
+            <div className=' inline-flex items-center justify-center border rounded-lg border-white w-content p-4 mb-6'>
               <input
                 type='text'
                 placeholder='Search'
@@ -31,7 +31,7 @@ const Hero = () => {
                 <FiSearch size={20} color='#fff' />
               </div>
             </div>
-            <Button>UPLOAD YOUR BEATS</Button>
+            <Button page='/'>UPLOAD YOUR BEATS</Button>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ const Button = ({ onClick, page, children, customStyles, buttonType }) => {
       <div className='flex justify-center items-center'>
         <Link
           href={`/${page}`}
-          className={`py-4 px-8 bg-primary text-white font-semibold z-10 overflow-hidden whitespace-nowrap w-full m-auto`}
+          className={`py-4 px-8 bg-primary text-white font-semibold z-10 overflow-hidden whitespace-nowrap w-full m-auto rounded-lg`}
           style={{ customStyles }}
         >
           {children}
@@ -22,7 +22,7 @@ const Button = ({ onClick, page, children, customStyles, buttonType }) => {
       <div className='flex justify-center items-center'>
         <button
           onClick={onClick}
-          className={`py-4 px-8 bg-primary text-white font-semibold z-10 overflow-hidden whitespace-nowrap w-full m-auto`}
+          className={`py-4 px-8 bg-primary text-white font-semibold z-10 overflow-hidden whitespace-nowrap w-full m-auto rounded-lg`}
           type={buttonType}
           style={{ customStyles }}
         >
