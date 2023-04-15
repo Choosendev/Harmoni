@@ -25,7 +25,7 @@ const Hero = () => {
                 // value={searchInput}
                 // onChange={handleSearchInput}
                 // onKeyDown={handleKeyDown}
-                className='bg-transparent'
+                className='bg-transparent border-none outline-0'
               />
               <div className='flex items-center'>
                 <FiSearch size={20} color='#fff' />
