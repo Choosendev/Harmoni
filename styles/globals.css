@@ -25,3 +25,11 @@ a {
     background: black;
   }
 }
+
+/* SPLIDE CAROUSEL STYLES */
+.splide__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.875rem;
+}

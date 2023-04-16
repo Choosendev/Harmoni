@@ -4,7 +4,6 @@ import { FiMenu } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { RiHome5Line, RiFileUploadLine } from 'react-icons/ri';
 import { BsCartDash, BsChevronUp, BsChevronDown } from 'react-icons/bs';
-import PageLink from './PageLink';
 import Link from 'next/link';
 
 const Navbar = () => {

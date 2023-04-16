@@ -31,7 +31,7 @@ const Hero = () => {
                 <FiSearch size={20} color='#fff' />
               </div>
             </div>
-            <Button page='/'>UPLOAD YOUR BEATS</Button>
+            <Button page='upload'>UPLOAD YOUR BEATS</Button>
           </div>
         </div>
       </div>
