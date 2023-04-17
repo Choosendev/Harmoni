@@ -2,136 +2,90 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@src/components/Button';
 import { beatCardData } from '@src/utils/data';
+import { AiOutlinePlayCircle, AiOutlineShareAlt } from 'react-icons/ai';
+import { MdOutlineFavoriteBorder } from 'react-icons/md';
+// import bgImage from '@/assets/images/beat-card-bg.png';
 
 function BeatsList() {
   return (
-    <div className='w-full pt-7'>
-      <div className='flex justify-between mb-8'>
-        {/* BEATS FILTER */}
-        <div className='flex  justify-between'>
-          <Link href='#/'>All</Link>
-          <Link href='#/'>Afro pop</Link>
-          <Link href='#/'>R&B</Link>
-          <Link href='#/'>world</Link>
-          <div className=''>
-            <select name='' id='' placeholder='Filter'>
-              <option>Filter</option>
-              <option>Afro pop</option>
-              <option>Gospel</option>
-              <option>Fuji</option>
-              <option>Juju</option>
-              <option>Hip hop</option>
-              <option>Blues</option>
-              <option>Reggae</option>
-              <option>Apala</option>
-            </select>
+    <section id='beat-list'>
+      {/* FILTER AND CARD LISTS */}
+      <div>
+        {/* FILTER */}
+        <div>
+          {/* HORIZONTAL LIST TO FILTER GENRE */}
+          <ul className='flex justify-between items-center mb-12'>
+            <li>All</li>
+            <li>Afro-beats</li>
+            <li>R&B</li>
+            <li>
+              <select placeholder='Filter' className='text-black'>
+                <option value=' '>Filter</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        {/* CARD LISTS */}
+        <div className='px-[26px] py-4 bg-[#1b1b1b] mb-8'>
+          {/* HORIZONTAL LISTS SHOWING BEATS OWNER DETAILS */}
+          <div className='flex justify-between items-center mb-16'>
+            <div className='rounded-full'>
+              <Image
+                src='/assets/images/person.png'
+                width={52}
+                height={52}
+                alt='producer'
+                className='rounded-full'
+              />
+            </div>
+            <p>Mariam</p>
+            <p>@drewmagic</p>
+            <p>2 hrs ago</p>
+          </div>
+
+          {/* CARD BACKGROUND  */}
+          <div
+            className='relative bg-cover bg-center h-64 mb-20'
+            style={{
+              backgroundImage: `url(${'/assets/images/beat-card-bg.png'})`,
+            }}
+          >
+            <div className='absolute flex gap-[18px] left-6 bottom-6'>
+              <div className='flex items-center'>
+                <AiOutlinePlayCircle width={20} height={20} />
+              </div>
+              <p>Wintspread</p>
+            </div>
+          </div>
+
+          {/* PRICE AND CTA BUTTON */}
+          <div className='flex justify-between items-center mb-5'>
+            <p>NGN 90,000</p>
+            <Button page='cart'> BUY NOW</Button>
+          </div>
+
+          {/* CARD FOOTER */}
+          <div className='flex justify-between items-center'>
+            <div className='flex items-center gap-5'>
+              <div>
+                <AiOutlineShareAlt />
+              </div>
+              <p>Share</p>
+            </div>
+            <div className='flex items-center gap-5'>
+              <div>
+                {' '}
+                <MdOutlineFavoriteBorder />{' '}
+              </div>
+              <p>Save for later</p>
+            </div>
           </div>
         </div>
+        <div className='text-center mt-6'>
+          <button>...Load more</button>
+        </div>
       </div>
-      <div className='flex flex-col px-[26px] py-4 bg-[#1b1b1b'>
-        {beatCardData.map((card, index) => (
-          <div className='rounded-lg mt-4  bg-transparent' key={index}>
-            <div className='flex justify-between items-center text-xs mb-4'>
-              <div>
-                <Image
-                  width={52}
-                  height={52}
-                  src={card.personimg}
-                  alt='image'
-                  className=''
-                />
-              </div>
-              <h3 className=''> {card.name} </h3>
-              <p className=''>@{card.tag} </p>
-              <div className=''></div>
-              <p> {card.time} Ago</p>
-            </div>
-
-            <div className=''>
-              <div className='w-full'>
-                <div className=''>
-                  <Image
-                    width={52}
-                    height={52}
-                    src={card.cardimg}
-                    alt='Snow'
-                    className=''
-                  />
-                </div>
-                <div className=''>
-                  <Image
-                    width={52}
-                    height={52}
-                    src={card.cardplay}
-                    alt='videocircle'
-                  />
-                </div>
-              </div>
-              <div className=''>
-                <div className=''>
-                  <div className=''>
-                    <Image
-                      width={52}
-                      height={52}
-                      src={card.cardplay}
-                      alt='videocircle'
-                    />
-                  </div>{' '}
-                  <div>
-                    <h4>{card.cardname}</h4>
-                  </div>
-                </div>
-                <div className=''>
-                  <p>
-                    Beat by {card.name} @{card.tag}
-                    <br />
-                    released on {card.released}
-                  </p>
-                </div>
-
-                <div className=''>
-                  <p className=''>{card.amount} </p>{' '}
-                  <Button page='review'>BUY NOW</Button>
-                </div>
-              </div>
-            </div>
-
-            <div className=''>
-              <div className=''>
-                <div className=''>
-                  <Image
-                    width={52}
-                    height={52}
-                    src={card.shares}
-                    alt='image'
-                    className=''
-                  />
-                </div>
-
-                <div className=''>
-                  <p>share</p>
-                </div>
-              </div>
-
-              <div className=''>
-                <div className=''>
-                  <Image
-                    width={52}
-                    height={52}
-                    src={card.saves}
-                    alt='image'
-                    className=''
-                  />
-                </div>
-                <div className=''>
-                  <p>save for later</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }
 

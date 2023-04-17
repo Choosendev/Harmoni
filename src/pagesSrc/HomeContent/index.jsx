@@ -9,13 +9,29 @@ const HomeContent = () => {
       {/* CAROUSEL */}
       <PopularUploads />
 
-      {/* FILTER BEATS LISTS*/}
-      <div className=''></div>
-      {/* BEAT CARDS */}
-      <BeatsList />
-
-      <div className='m-auto'>
-        <button>...Load more</button>
+      <div className=''>
+        <h2>Feed</h2>
+        {/* Trending Search and Popular Producers */}
+        <div>
+          {/* Trending Search */}
+          <div>
+            <h3>Trending Search</h3>
+            <ul>
+              <li>Mariam</li>
+              <li>William</li>
+            </ul>
+          </div>
+          {/* Popular Producers */}
+          <div>
+            <h3>Popular Producer</h3>
+            <ul>
+              <li>Mariam</li>
+              <li>William</li>
+            </ul>
+          </div>{' '}
+        </div>
+        {/* BEAT CARDS */}
+        <BeatsList />
       </div>
     </div>
   );

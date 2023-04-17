@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '@src/components/Header';
+import Footer from '@src/components/Footer';
 
 const Layout = ({ children, styles }) => {
   return (
@@ -13,7 +14,9 @@ const Layout = ({ children, styles }) => {
         <Header />
       </header>
       <main className={styles}>{children}</main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };
