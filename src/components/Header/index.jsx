@@ -3,9 +3,10 @@ import Navbar from './Navbar';
 import Hero from './Hero';
 
 const Header = ({ page }) => {
+  console.log(page);
   return (
     <div>
-      <Navbar />
+      <Navbar page={page} />
       {page === 'home' && <Hero />}
     </div>
   );

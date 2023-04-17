@@ -3,6 +3,7 @@ import Header from '@src/components/Header';
 import Footer from '@src/components/Footer';
 
 const Layout = ({ children, styles, page }) => {
+  console.log('layout', page);
   return (
     <div className=''>
       <Head>
