@@ -1,37 +1,43 @@
 import React from 'react';
 import PopularUploads from './PopularUploads';
 import BeatsList from './BeatsList';
+import ListCardWrapper from './ListCardWrapper';
 
 const HomeContent = () => {
   return (
     <div className='pt-10 px-4 sm:px-10 md:px-24 lg:px-40 xl:px-[286px]'>
-      {/* <div className='pt-10 flex flex-col items-start sm:max-w-sm md:max-w-md lg:max-w-xl'> */}
       {/* CAROUSEL */}
       <PopularUploads />
 
       <div className=''>
-        <h2>Feed</h2>
-        {/* Trending Search and Popular Producers */}
-        <div>
-          {/* Trending Search */}
-          <div>
-            <h3>Trending Search</h3>
-            <ul>
-              <li>Mariam</li>
-              <li>William</li>
-            </ul>
+        <h2 className='hidden md:block md:mb-7 md:text-xl lg:text-2xl'>Feed</h2>
+        <div className='flex justify-between'>
+          {/* Trending Search and Popular Producers */}
+          <div className='hidden md:block'>
+            {/* Trending Search */}
+            <ListCardWrapper>
+              <div>
+                <h3 className='mb-6 font-semibold'>Trending Search</h3>
+                <ul className='flex flex-col gap-10'>
+                  <li>Mariam</li>
+                  <li>William</li>
+                </ul>
+              </div>
+            </ListCardWrapper>
+            {/* Popular Producers */}
+            <ListCardWrapper>
+              <div>
+                <h3 className='mb-6 font-semibold'>Popular Producer</h3>
+                <ul className='flex flex-col gap-10'>
+                  <li>Mariam</li>
+                  <li>William</li>
+                </ul>
+              </div>{' '}
+            </ListCardWrapper>
           </div>
-          {/* Popular Producers */}
-          <div>
-            <h3>Popular Producer</h3>
-            <ul>
-              <li>Mariam</li>
-              <li>William</li>
-            </ul>
-          </div>{' '}
+          {/* BEAT CARDS */}
+          <BeatsList />
         </div>
-        {/* BEAT CARDS */}
-        <BeatsList />
       </div>
     </div>
   );
