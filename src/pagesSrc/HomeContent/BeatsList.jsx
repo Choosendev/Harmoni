@@ -4,6 +4,7 @@ import Button from '@src/components/Button';
 import { beatCardData } from '@src/utils/data';
 import { AiOutlinePlayCircle, AiOutlineShareAlt } from 'react-icons/ai';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
+import ListCardWrapper from './ListCardWrapper';
 // import bgImage from '@/assets/images/beat-card-bg.png';
 
 function BeatsList() {
@@ -26,7 +27,7 @@ function BeatsList() {
           </ul>
         </div>
         {/* CARD LISTS */}
-        <div className='px-[26px] py-4 bg-[#1b1b1b] mb-8'>
+        <ListCardWrapper>
           {/* HORIZONTAL LISTS SHOWING BEATS OWNER DETAILS */}
           <div className='flex justify-between items-center mb-16'>
             <div className='rounded-full'>
@@ -80,7 +81,7 @@ function BeatsList() {
               <p>Save for later</p>
             </div>
           </div>
-        </div>
+        </ListCardWrapper>
         <div className='text-center mt-6'>
           <button>...Load more</button>
         </div>
