@@ -8,7 +8,7 @@ import { MdOutlineFavoriteBorder } from 'react-icons/md';
 
 function BeatsList() {
   return (
-    <section id='beat-list'>
+    <section id='beat-list' className='w-full'>
       {/* FILTER AND CARD LISTS */}
       <div>
         {/* FILTER */}
