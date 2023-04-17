@@ -18,9 +18,11 @@ const Navbar = () => {
     setOpen((value) => !value);
   };
   return (
-    <div className='fixed top-0 left-0 w-full'>
-      <div className='px-8 py-7 relative sm:px-12 lg:px-28 md:flex md:justify-between md:items-center'>
-        <div className='flex justify-between items-center'>
+    <div className=' fixed top-0 left-0 w-full z-10'>
+      {/* <div className=''></div> */}
+      {/* <div className='bg-nav-gradient backdrop-blur-md px-8 py-7 sm:px-12 lg:px-28 md:flex md:justify-between md:items-center'> */}
+      <div className='bg-nav-gradient  backdrop-blur-lg px-8 py-7 relative sm:px-12 lg:px-28 md:flex md:justify-between md:items-center'>
+        <div className='flex justify-between items-center z-50'>
           <div className='flex gap-2'>
             <Image
               src='/assets/images/kulture-logo.png'
@@ -31,7 +33,7 @@ const Navbar = () => {
             <p>Kulture</p>
           </div>
           <div>
-            {/* HAMBURGER MENU AND CLOSE */}
+            {/* HAMBURGER MENU */}
             <div type='button' onClick={toggleHandler} className='md:hidden'>
               {!open && <FiMenu size={16} />}
             </div>
@@ -115,7 +117,7 @@ const Navbar = () => {
                 </li>
                 <li className=''>
                   <Link
-                    href='/'
+                    href='/sign-in'
                     // className={`${
                     //   selectedPage === lowerCasePage ? 'text-blue' : ''
                     // } hover:text-blue-50`}
@@ -246,7 +248,7 @@ const Navbar = () => {
             </li>
             <li className=''>
               <Link
-                href='/'
+                href='/sign-in'
                 // className={`${
                 //   selectedPage === lowerCasePage ? 'text-blue' : ''
                 // } hover:text-blue-50`}
