@@ -128,7 +128,7 @@ const Navbar = () => {
                 </li>
                 <li className=''>
                   <Link
-                    href='/'
+                    href='/sign-up'
                     className='px-4 py-2 text-xs border rounded-lg'
                     // className={`${
                     //   selectedPage === lowerCasePage ? 'text-blue' : ''
@@ -259,7 +259,7 @@ const Navbar = () => {
             </li>
             <li className=''>
               <Link
-                href='/'
+                href='/sign-up'
                 className='px-4 py-2 text-xs border rounded-lg'
                 // className={`${
                 //   selectedPage === lowerCasePage ? 'text-blue' : ''

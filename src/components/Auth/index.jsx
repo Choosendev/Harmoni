@@ -5,7 +5,7 @@ import SignUpContent from './SignUpContent';
 const Auth = ({ page }) => {
   return (
     <div>
-      <div>
+      <div className='pt-[72px] sm:pt-24 md:pt-40'>
         {page === 'sign-in' && <SignInContent />}
         {page === 'sign-up' && <SignUpContent />}
       </div>

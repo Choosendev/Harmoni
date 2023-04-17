@@ -9,7 +9,7 @@ const SignUp = () => {
         {' '}
         <div>
           <Layout styles='flex flex-col items-center'>
-            <Auth page='sign-in' />
+            <Auth page='sign-up' />
           </Layout>
         </div>
       </div>

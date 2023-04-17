@@ -2,11 +2,11 @@ import React from 'react';
 import Navbar from './Navbar';
 import Hero from './Hero';
 
-const Header = () => {
+const Header = ({ page }) => {
   return (
     <div>
       <Navbar />
-      <Hero />
+      {page === 'home' && <Hero />}
     </div>
   );
 };

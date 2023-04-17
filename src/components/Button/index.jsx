@@ -17,7 +17,7 @@ const Button = ({ onClick, page, children, customStyles, buttonType }) => {
   }
 
   // If onClick is provided, return a button element
-  if (onClick) {
+  if (onClick || buttonType) {
     return (
       <div className='flex justify-center items-center'>
         <button

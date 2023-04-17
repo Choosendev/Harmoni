@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Header from '@src/components/Header';
 import Footer from '@src/components/Footer';
 
-const Layout = ({ children, styles }) => {
+const Layout = ({ children, styles, page }) => {
   return (
     <div className=''>
       <Head>
@@ -11,7 +11,7 @@ const Layout = ({ children, styles }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <header>
-        <Header />
+        <Header page={page} />
       </header>
       <main className={styles}>{children}</main>
       <footer>
