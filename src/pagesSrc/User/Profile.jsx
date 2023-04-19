@@ -1,5 +1,8 @@
 import React from 'react';
 import ProfileHero from './ProfileHero';
+import SalesCard from './SalesCard';
+import SalesChart from './SalesChart';
+import BeatList from '@src/components/BeatList';
 
 const Profile = () => {
   return (
@@ -27,6 +30,9 @@ const Profile = () => {
           <div>{/* Social Icons */}</div>
         </div>
       </div>
+      <SalesCard />
+      <SalesChart />
+      <BeatList />
     </div>
   );
 };
