@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@src/components/Button';
-import ButtonOutline from '@src/components/ButtonOutline';
+import ButtonOutline from '@src/components/Button/ButtonOutline';
 
 const SalesCard = () => {
   return (

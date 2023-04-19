@@ -1,5 +1,6 @@
 import React from 'react';
 import Profile from '@src/pagesSrc/User/Profile';
+import Layout from '@src/components/Layout';
 
 const User = () => {
   return (

@@ -1,9 +1,9 @@
-import Link from 'next/link';
+import Image from 'next/Image';
 import Button from '@src/components/Button';
 // import { beatCardData } from '@src/utils/data';
 import { AiOutlinePlayCircle, AiOutlineShareAlt } from 'react-icons/ai';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
-import ListCardWrapper from './ListCardWrapper';
+import ListWrapper from './ListWrapper';
 
 function BeatList() {
   return (
@@ -25,7 +25,7 @@ function BeatList() {
           </ul>
         </div>
         {/* CARD LISTS */}
-        <ListCardWrapper>
+        <ListWrapper>
           {/* HORIZONTAL LISTS SHOWING BEATS OWNER DETAILS */}
           <div className='flex justify-between items-center mb-16'>
             <div className='rounded-full'>
@@ -79,7 +79,7 @@ function BeatList() {
               <p>Save for later</p>
             </div>
           </div>
-        </ListCardWrapper>
+        </ListWrapper>
         <div className='text-center mt-6'>
           <button>...Load more</button>
         </div>
