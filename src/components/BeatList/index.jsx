@@ -1,4 +1,4 @@
-import Image from 'next/Image';
+import Image from 'next/image';
 import Button from '@src/components/Button';
 // import { beatCardData } from '@src/utils/data';
 import { AiOutlinePlayCircle, AiOutlineShareAlt } from 'react-icons/ai';

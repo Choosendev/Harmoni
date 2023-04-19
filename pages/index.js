@@ -1,4 +1,4 @@
-import Layout from '@src/components/Layout.js';
+import Layout from '@src/components/Layout';
 import HomeContent from '@src/pagesSrc/HomeContent';
 
 export default function Home() {
