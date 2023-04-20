@@ -9,9 +9,13 @@ import Link from 'next/link';
 const Navbar = ({ page }) => {
   const [open, setOpen] = useState(false);
   const [hideUploadList, setHideUploadList] = useState(true);
+  const [showProfileOptions, setProfileOptions] = useState(false);
 
   const handleUploadListToggle = () => {
     setHideUploadList((value) => !value);
+  };
+  const handleProfileOptions = () => {
+    setProfileOptions((value) => !value);
   };
 
   const toggleHandler = () => {
@@ -144,7 +148,7 @@ const Navbar = ({ page }) => {
                 </li>
                 <li
                   className='flex item-center flex-col relative'
-                  onClick={handleUploadListToggle}
+                  onClick={handleProfileOptions}
                 >
                   <div className='flex  items-center  gap-[17px]'>
                     <Image
@@ -165,18 +169,40 @@ const Navbar = ({ page }) => {
                         Hi, Muyiwa
                       </Link>
                       <div className='ml-[10px] flex items-center'>
-                        {hideUploadList ? <BsChevronDown /> : <BsChevronUp />}
+                        {showProfileOptions ? (
+                          <BsChevronDown />
+                        ) : (
+                          <BsChevronUp />
+                        )}
                       </div>
                     </div>
                   </div>
                   {/* SUB LISTS */}
-                  {!hideUploadList && (
+                  {showProfileOptions && (
                     <ul className='pl-8 mt-3.5'>
                       <li className='mb-3'>
-                        <Link href='/new-upload'>New Upload</Link>
+                        <Link href='/user'>
+                          <div>{/* Icon here */}</div>
+                          <p>My profile</p>
+                        </Link>
                       </li>
                       <li>
-                        <Link href='/myuploads'>My Uploads</Link>
+                        <Link href='/user'>
+                          <div>{/* Icon here */}</div>
+                          <p>My orders</p>
+                        </Link>{' '}
+                      </li>
+                      <li>
+                        <Link href='/user'>
+                          <div>{/* Icon here */}</div>
+                          <p>Saved items</p>
+                        </Link>{' '}
+                      </li>
+                      <li>
+                        <Link href='/user'>
+                          <div>{/* Icon here */}</div>
+                          <p>Logout</p>
+                        </Link>{' '}
                       </li>
                     </ul>
                   )}
@@ -275,7 +301,7 @@ const Navbar = ({ page }) => {
             </li>
             <li
               className='flex item-center flex-col relative'
-              onClick={handleUploadListToggle}
+              onClick={handleProfileOptions}
             >
               <div className='flex  items-center  gap-2'>
                 <Image
@@ -296,18 +322,36 @@ const Navbar = ({ page }) => {
                     Hi, Muyiwa
                   </Link>
                   <div className='ml-[10px] flex items-center'>
-                    {hideUploadList ? <BsChevronDown /> : <BsChevronUp />}
+                    {showProfileOptions ? <BsChevronDown /> : <BsChevronUp />}
                   </div>
                 </div>
               </div>
               {/* SUB LISTS */}
-              {!hideUploadList && (
+              {showProfileOptions && (
                 <ul className='pl-8 mt-3.5'>
                   <li className='mb-3'>
-                    <Link href='/new-upload'>New Upload</Link>
+                    <Link href='/user'>
+                      <div>{/* Icon here */}</div>
+                      <p>My profile</p>
+                    </Link>
                   </li>
                   <li>
-                    <Link href='/myuploads'>My Uploads</Link>
+                    <Link href='/user'>
+                      <div>{/* Icon here */}</div>
+                      <p>My orders</p>
+                    </Link>{' '}
+                  </li>
+                  <li>
+                    <Link href='/user'>
+                      <div>{/* Icon here */}</div>
+                      <p>Saved items</p>
+                    </Link>{' '}
+                  </li>
+                  <li>
+                    <Link href='/user'>
+                      <div>{/* Icon here */}</div>
+                      <p>Logout</p>
+                    </Link>{' '}
                   </li>
                 </ul>
               )}
