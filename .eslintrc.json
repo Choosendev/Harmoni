@@ -1,3 +1,11 @@
 {
   "extends": "next/core-web-vitals"
 }
+
+// {
+//   "extends": ["next"],
+//   "plugins": ["import"],
+//   "rules": {
+//     "import/extensions": ["error", "ignorePackages"]
+//   }
+// }

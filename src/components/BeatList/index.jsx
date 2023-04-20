@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Button from '@src/components/Button';
+import Image from 'next/image';
 // import { beatCardData } from '@src/utils/data';
 import { AiOutlinePlayCircle, AiOutlineShareAlt } from 'react-icons/ai';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
