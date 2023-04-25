@@ -1,8 +1,21 @@
 import React from 'react';
 import Button from '../Button';
 import AuthHeader from './AuthHeader';
+import { Toaster } from 'react-hot-toast';
+import { useFormik } from 'formik';
+import { SignupSchema, initialSignupValues } from '@src/schema/auth.schema';
 
 const SignUpContent = () => {
+  const formik = useFormik({
+    initialValues: initialSignupValues,
+    validationSchema: SignupSchema,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: (values) => {
+      console.log('patience');
+    },
+  });
+
   return (
     <section
       id='sign-up'
@@ -14,7 +27,10 @@ const SignUpContent = () => {
           description='Kindly provide the details below to get started'
         />
 
-        <form className='pt-6 flex flex-col gap-6 '>
+        <form
+          className='pt-6 flex flex-col gap-6 '
+          onSubmit={formik.handleSubmit}
+        >
           <div className='flex gap-6 w-full justify-between'>
             <div className='flex flex-col gap-4 w-2/5'>
               <label htmlFor='firstName'>First Name</label>
@@ -70,14 +86,14 @@ const SignUpContent = () => {
           <div className='flex flex-col gap-4'>
             <label htmlFor='password'>Confirm Password</label>
             <input
-              id='password'
-              name='password'
+              id='confirmPassword'
+              name='confirmPassword'
               placeholder='******'
               className='p-4'
             />
           </div>
 
-          <Button buttonType='submit'>Sign in</Button>
+          <Button buttonType='submit'>Sign up</Button>
         </form>
       </div>
     </section>
