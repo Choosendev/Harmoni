@@ -1,10 +1,11 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { RiHome5Line, RiFileUploadLine } from 'react-icons/ri';
 import { BsCartDash, BsChevronUp, BsChevronDown } from 'react-icons/bs';
-import Link from 'next/link';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Navbar = ({ page }) => {
   const [open, setOpen] = useState(false);
