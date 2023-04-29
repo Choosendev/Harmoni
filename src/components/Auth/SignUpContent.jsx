@@ -1,11 +1,34 @@
 import React from 'react';
 import Button from '../Button';
 import AuthHeader from './AuthHeader';
-import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 import { SignupSchema, initialSignupValues } from '@src/schema/auth.schema';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { register, reset } from '@src/states/slices/authSlice';
+import Spinner from '../Spinner';
 
 const SignUpContent = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      navigate('/');
+    }
+
+    dispatch(reset);
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const formik = useFormik({
     initialValues: initialSignupValues,
     validationSchema: SignupSchema,
@@ -13,8 +36,13 @@ const SignUpContent = () => {
     validateOnChange: false,
     onSubmit: (values) => {
       console.log('patience');
+      // dispatch(register(values));
     },
   });
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <section
@@ -35,6 +63,7 @@ const SignUpContent = () => {
             <div className='flex flex-col gap-4 w-2/5'>
               <label htmlFor='firstName'>First Name</label>
               <input
+                {...formik.getFieldProps('username')}
                 id='firstName'
                 name='firstName'
                 placeholder='John Doe'
