@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
@@ -6,11 +7,16 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { RiHome5Line, RiFileUploadLine } from 'react-icons/ri';
 import { BsCartDash, BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
+import { logout, reset } from '../../states/slices/authSlice';
 
 const Navbar = ({ page }) => {
   const [open, setOpen] = useState(false);
   const [hideUploadList, setHideUploadList] = useState(true);
   const [showProfileOptions, setProfileOptions] = useState(false);
+
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
 
   const handleUploadListToggle = () => {
     setHideUploadList((value) => !value);
@@ -22,6 +28,13 @@ const Navbar = ({ page }) => {
   const toggleHandler = () => {
     setOpen((value) => !value);
   };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    router.push('/');
+  };
+
   return (
     <div className=' fixed top-0 left-0 w-full z-10'>
       {/* <div className=''></div> */}
@@ -202,7 +215,7 @@ const Navbar = ({ page }) => {
                       <li>
                         <Link href='/user'>
                           <div>{/* Icon here */}</div>
-                          <p>Logout</p>
+                          <button onClick={handleLogout}>Logout</button>
                         </Link>{' '}
                       </li>
                     </ul>
