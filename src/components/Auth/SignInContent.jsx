@@ -1,12 +1,12 @@
 import React from 'react';
+// import { useRouter } from 'next/router';
 import Button from '../Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { login, reset } from '@src/states/slices/authSlice';
 
 const SignInContent = () => {
-  const navigate = useNavigate();
+  // const router = useRouter();
   const dispatch = useDispatch();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -19,15 +19,15 @@ const SignInContent = () => {
     }
 
     if (isSuccess || user) {
-      navigate('/');
+      // router('/');
     }
 
     dispatch(reset);
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  }, [user, isError, isSuccess, message, router, dispatch]);
 
-  if (isLoading) {
-    return <Spinner />;
-  }
+  // if (isLoading) {
+  //   return <Spinner />;
+  // }
 
   return (
     <section id='sign-in'>

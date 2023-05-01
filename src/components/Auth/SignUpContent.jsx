@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '../Button';
+import { useRouter } from 'next/router';
 import AuthHeader from './AuthHeader';
 import { useFormik } from 'formik';
 import { SignupSchema, initialSignupValues } from '@src/schema/auth.schema';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { register, reset } from '@src/states/slices/authSlice';
 import Spinner from '../Spinner';
 
 const SignUpContent = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const dispatch = useDispatch();
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -23,11 +23,11 @@ const SignUpContent = () => {
     }
 
     if (isSuccess || user) {
-      navigate('/');
+      router.push('/');
     }
 
     dispatch(reset);
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  }, [user, isError, isSuccess, message, router, dispatch]);
 
   const formik = useFormik({
     initialValues: initialSignupValues,
@@ -35,14 +35,15 @@ const SignUpContent = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: (values) => {
-      console.log('patience');
+      console.log(values);
+      toast.error('Good');
       // dispatch(register(values));
     },
   });
 
-  if (isLoading) {
-    return <Spinner />;
-  }
+  // if (isLoading) {
+  //   return <Spinner />;
+  // }
 
   return (
     <section
@@ -67,8 +68,16 @@ const SignUpContent = () => {
                 id='firstName'
                 name='firstName'
                 placeholder='John Doe'
-                className='p-4'
+                className='p-4 text-black'
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.firstName}
               />
+              {formik.touched.firstName && formik.errors.firstName ? (
+                <div className='text-xs text-red-500 -mt-2'>
+                  {formik.errors.firstName}
+                </div>
+              ) : null}
             </div>
             <div className='flex flex-col gap-4 w-2/5'>
               <label htmlFor='lastName'>Last Name</label>
@@ -76,8 +85,16 @@ const SignUpContent = () => {
                 id='lastName'
                 name='lastName'
                 placeholder='John Doe'
-                className='p-4'
+                className='p-4 text-black'
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.lastName}
               />
+              {formik.touched.lastName && formik.errors.lastName ? (
+                <div className='text-xs text-red-500 -mt-2'>
+                  {formik.errors.lastName}
+                </div>
+              ) : null}
             </div>
           </div>
           <div className='flex flex-col gap-4'>
@@ -86,8 +103,16 @@ const SignUpContent = () => {
               id='email'
               name='email'
               placeholder='John Doe'
-              className='p-4'
+              className='p-4 text-black'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
             />
+            {formik.touched.email && formik.errors.email ? (
+              <div className='text-xs text-red-500 -mt-2'>
+                {formik.errors.email}
+              </div>
+            ) : null}
           </div>
           <div className='flex flex-col gap-4'>
             <label htmlFor='username'>Choose a username</label>
@@ -95,8 +120,16 @@ const SignUpContent = () => {
               id='username'
               name='username'
               placeholder='John Doe'
-              className='p-4'
+              className='p-4 text-black'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.userName}
             />
+            {formik.touched.userName && formik.errors.userName ? (
+              <div className='text-xs text-red-500 -mt-2'>
+                {formik.errors.userName}
+              </div>
+            ) : null}
           </div>
           <div className='flex flex-col gap-4'>
             <label htmlFor='password'>Password</label>
@@ -104,8 +137,16 @@ const SignUpContent = () => {
               id='password'
               name='password'
               placeholder='******'
-              className='p-4'
+              className='p-4 text-black'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
             />
+            {formik.touched.password && formik.errors.password ? (
+              <div className='text-xs text-red-500 -mt-2'>
+                {formik.errors.password}
+              </div>
+            ) : null}
             <p className='break-words'>
               * Passwords must be at least 8 characters in length, at least one
               uppercase character, at least one lowercase character, and must
@@ -118,10 +159,17 @@ const SignUpContent = () => {
               id='confirmPassword'
               name='confirmPassword'
               placeholder='******'
-              className='p-4'
+              className='p-4 text-black'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.confirmPassword}
             />
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+              <div className='text-xs text-red-500 -mt-2'>
+                {formik.errors.confirmPassword}
+              </div>
+            ) : null}
           </div>
-
           <Button buttonType='submit'>Sign up</Button>
         </form>
       </div>
