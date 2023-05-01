@@ -41,9 +41,9 @@ const SignUpContent = () => {
     },
   });
 
-  // if (isLoading) {
-  //   return <Spinner />;
-  // }
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <section
@@ -147,7 +147,7 @@ const SignUpContent = () => {
                 {formik.errors.password}
               </div>
             ) : null}
-            <p className='break-words'>
+            <p className='break-words text-sm'>
               * Passwords must be at least 8 characters in length, at least one
               uppercase character, at least one lowercase character, and must
               contain at least one digit character OR a symbol.
