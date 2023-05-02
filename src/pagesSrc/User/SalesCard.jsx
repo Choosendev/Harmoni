@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from '@src/components/Button';
 import ButtonOutline from '@src/components/Button/ButtonOutline';
-import ListCardWrapper from '../HomeContent/ListCardWrapper';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import SectionCardWrapper from '@src/components/Wrapper/SectionCardWrapper';
 
 const SalesCard = () => {
   return (
-    <ListCardWrapper>
+    <SectionCardWrapper>
       <section id='sales'>
         <div className='flex justify-between items-center mb-4'>
           <h2 className='text-2xl'>Sales</h2>
@@ -31,7 +31,7 @@ const SalesCard = () => {
           </div>
         </div>
       </section>
-    </ListCardWrapper>
+    </SectionCardWrapper>
   );
 };
 

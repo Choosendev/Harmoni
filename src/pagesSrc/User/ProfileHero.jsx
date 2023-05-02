@@ -15,7 +15,7 @@ const ProfileHero = () => {
           }}
         >
           {' '}
-          <div className='flex items-center p-4 gap-5'>
+          <div className='flex items-center justify-center px-4 pt-4 pb-7 gap-5'>
             <div className='relative'>
               <Image
                 src='/assets/images/profile-picture.png'
@@ -37,7 +37,9 @@ const ProfileHero = () => {
               <p className='p-2 bg-[#0A0A09] rounded-lg'>@andybanny</p>
             </div>
           </div>
-          <Button page='upload'>UPLOAD BEATS</Button>
+          <Button page='upload' classname='w-1/2 md:w-2/5'>
+            UPLOAD BEATS
+          </Button>
         </div>
       </div>
     </section>

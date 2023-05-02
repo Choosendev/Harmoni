@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { AiOutlinePlayCircle, AiOutlineShareAlt } from 'react-icons/ai';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import ListWrapper from './ListWrapper';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 function BeatList() {
   return (
@@ -61,6 +62,9 @@ function BeatList() {
           <div className='flex justify-between items-center mb-5'>
             <p>NGN 90,000</p>
             <Button page='cart'> BUY NOW</Button>
+            <button>
+              <RiDeleteBinLine width={24} color='red' />
+            </button>
           </div>
 
           {/* CARD FOOTER */}

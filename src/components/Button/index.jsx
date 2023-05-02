@@ -1,13 +1,23 @@
 import Link from 'next/link';
 
-const Button = ({ onClick, page, children, customStyles, buttonType }) => {
+const Button = ({
+  onClick,
+  page,
+  children,
+  customStyles,
+  buttonType,
+  classname,
+}) => {
+  console.log(classname);
   // If page is provided, return a Link component
   if (page) {
     return (
-      <div className='flex justify-center items-center'>
+      <div className={`flex justify-center items-center`}>
         <Link
           href={`/${page}`}
-          className={`py-4 px-8 bg-primary text-white font-semibold  overflow-hidden whitespace-nowrap w-full m-auto rounded-lg`}
+          className={`${
+            classname && classname
+          } py-4 px-8 bg-primary text-center text-white font-semibold  overflow-hidden whitespace-nowrap w-full m-auto rounded-lg`}
           style={{ customStyles }}
         >
           {children}
@@ -22,7 +32,9 @@ const Button = ({ onClick, page, children, customStyles, buttonType }) => {
       <div className='flex justify-center items-center'>
         <button
           onClick={onClick}
-          className={`py-4 px-8 bg-primary text-white font-semibold  overflow-hidden whitespace-nowrap w-full m-auto rounded-lg`}
+          className={`${
+            classname ? classname : null
+          } py-4 px-8 bg-primary text-center text-white font-semibold  overflow-hidden whitespace-nowrap w-full m-auto rounded-lg`}
           type={buttonType}
           style={{ customStyles }}
         >
