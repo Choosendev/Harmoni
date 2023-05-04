@@ -16,6 +16,13 @@ a {
   box-sizing: border-box;
 }
 
+.heading-2 {
+  @apply text-2xl font-semibold;
+}
+.heading-3 {
+  @apply text-xl font-semibold;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

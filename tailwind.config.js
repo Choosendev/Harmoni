@@ -13,6 +13,7 @@ module.exports = {
       colors: {
         background: '#1E1E1E',
         primary: '#6600E8',
+        secondary: '#DDC8F9',
       },
       backgroundImage: {
         'hero-pattern': "url('/assets/images/header-bg.png')",

@@ -1,11 +1,12 @@
 import React from 'react';
 import OrdersList from '../../src/pagesSrc/User/OrdersList';
+import Layout from '@src/components/Layout';
 
 const orders = () => {
   return (
-    <div>
+    <Layout page='order'>
       <OrdersList />
-    </div>
+    </Layout>
   );
 };
 
