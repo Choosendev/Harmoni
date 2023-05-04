@@ -201,13 +201,13 @@ const Navbar = ({ page }) => {
                         </Link>
                       </li>
                       <li>
-                        <Link href='/user'>
+                        <Link href='/user/orders'>
                           <div>{/* Icon here */}</div>
                           <p>My orders</p>
                         </Link>{' '}
                       </li>
                       <li>
-                        <Link href='/user'>
+                        <Link href='/user/saved-items'>
                           <div>{/* Icon here */}</div>
                           <p>Saved items</p>
                         </Link>{' '}
@@ -350,13 +350,13 @@ const Navbar = ({ page }) => {
                     </Link>
                   </li>
                   <li>
-                    <Link href='/user'>
+                    <Link href='/user/orders'>
                       <div>{/* Icon here */}</div>
                       <p>My orders</p>
                     </Link>{' '}
                   </li>
                   <li>
-                    <Link href='/user'>
+                    <Link href='/user/saved-items'>
                       <div>{/* Icon here */}</div>
                       <p>Saved items</p>
                     </Link>{' '}

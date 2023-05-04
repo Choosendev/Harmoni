@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import React from 'react';
 import ListCardWrapper from '@src/components/Wrapper/ListCardWrapper';
-import Image from 'next/image';
 import Button from '@src/components/Button';
 import MainContentWrapper from '../../components/Wrapper/MainContentWrapper';
 
