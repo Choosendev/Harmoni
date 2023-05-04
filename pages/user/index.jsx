@@ -6,7 +6,7 @@ const User = () => {
     <div>
       <div>
         <div>
-          <Layout styles='flex flex-col items-center'>
+          <Layout styles='flex flex-col items-center' page='user'>
             <Profile />
           </Layout>
         </div>

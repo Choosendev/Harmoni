@@ -25,7 +25,7 @@ const SalesCard = () => {
             <p className=''>Total sales</p>
             <p className='text-lg'>80</p>
           </div>
-          <div className='flex justify-between items-center'>
+          <div className='flex justify-between items-center gap-4'>
             <Button page='withdraw'>Withdraw</Button>
             <ButtonOutline page='add-account'>Add account</ButtonOutline>
           </div>

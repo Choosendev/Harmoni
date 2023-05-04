@@ -6,7 +6,7 @@ import { BiCamera } from 'react-icons/bi';
 const ProfileHero = () => {
   return (
     <section id='profile-hero'>
-      <div>
+      <div className='pt-20 px-4 sm:px-10 lg:px-24 m-auto'>
         <h1 className='text-4xl font-bold mb-6'>Profile</h1>
         <div
           className='relative bg-cover bg-center px-4 pt-4 pb-6'

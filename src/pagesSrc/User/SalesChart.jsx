@@ -21,18 +21,21 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Bar Chart',
-    },
+  legend: {
+    display: false,
+  },
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
 
 export const data = {
   labels,
@@ -54,11 +57,13 @@ export const data = {
 
 const SalesChart = () => {
   return (
-    <div className='mt-7 mb-14'>
-      <SectionCardWrapper>
-        <h2>Sale Chart</h2>
-        <Bar options={options} data={data} />
-      </SectionCardWrapper>
+    <div style={{ width: '100%' }}>
+      <div className='mb-14'>
+        <SectionCardWrapper>
+          <h2 className='mb-6'>Sale Chart</h2>
+          <Bar options={options} data={data} height={400} />
+        </SectionCardWrapper>
+      </div>
     </div>
   );
 };
