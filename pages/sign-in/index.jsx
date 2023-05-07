@@ -5,7 +5,6 @@ import Auth from '../../src/components/Auth';
 const SignIn = () => {
   return (
     <div>
-      {' '}
       <div>
         <Layout styles='flex flex-col items-center'>
           <Auth page='sign-in' />
