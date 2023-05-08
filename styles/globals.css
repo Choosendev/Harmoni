@@ -40,3 +40,58 @@ a {
   align-items: center;
   gap: 0.875rem;
 }
+
+/* AUDIO PLAYER STYLES */
+/* Remove background and change function key color */
+.audio-player {
+  background-color: transparent;
+}
+
+/* Set color of function keys */
+/* .audio-player::-webkit-media-controls-panel,
+.audio-player::-webkit-media-controls-play-button,
+.audio-player::-webkit-media-controls-pause-button,
+.audio-player::-webkit-media-controls-stop-button {
+  color: white;
+} */
+/* .audio-player::-webkit-media-controls-panel,
+.audio-player::-webkit-media-controls-enclosure,
+.audio-player::-webkit-media-controls-play-button,
+.audio-player::-webkit-media-controls-pause-button,
+.audio-player::-webkit-media-controls-stop-button {
+  filter: invert(1);
+} */
+
+/* custom styles with Tailwind CSS */
+input[type='range'] {
+  @apply bg-secondary appearance-none rounded-lg relative w-full h-11 outline-none;
+}
+
+/* progress bar - safari */
+input::-webkit-slider-runnable-track {
+  @apply rounded-lg relative w-full h-11 outline-none;
+}
+
+/* progress bar - firefox */
+input::-moz-range-track {
+  @apply rounded-lg relative w-full h-11 outline-none;
+}
+
+/* progress bar - chrome and safari */
+input::before {
+  @apply h-11 rounded-lg absolute top--4 left-0 z-[2] cursor-pointer;
+  width: var(--seek-before-width);
+}
+
+/* progress bar - firefox */
+input::-moz-range-progress {
+  @apply rounded-tl-lg rounded-bl-lg h-11;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  @apply w-[11.5rem] h-[1.25rem] bg-[#949494] rounded-lg;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  @apply invisible;
+}
