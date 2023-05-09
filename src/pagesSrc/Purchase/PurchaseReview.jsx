@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import MainContentWrapper from '@src/components/Wrapper/MainContentWrapper';
 import AudioPlayer from './AudioPlayer';
+import BuyingOptions from './BuyingOptions';
 
 const PurchaseReview = () => {
   return (
     <Fragment>
       <MainContentWrapper>
-        <div className='pt-20 px-4 sm:px-10 lg:px-24 m-auto'>
-          <h1 className='pb-10 text-3xl'>Review</h1>
+        <div className='pt-20'>
+          <h1 className='pb-10 text-3xl md:text-[32px]'>Review</h1>
           <div>
             <div className='flex gap-3 items-start'>
               {/* IMAGE */}
@@ -20,8 +21,8 @@ const PurchaseReview = () => {
 
             {/* MUSIC PROGRESS BAR */}
 
-            <div className='py-2.5 px-4 mt-10'>
-              <AudioPlayer />
+            <div className='py-2.5 my-10'>
+              {/* <AudioPlayer /> */}
               <audio controls autoplay class='audio-player'>
                 <source
                   src='http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3'
@@ -33,9 +34,7 @@ const PurchaseReview = () => {
         </div>
 
         {/* BUYING OPTIONS */}
-        <div>
-          <h2 className='heading-2'>Buying Options</h2>
-        </div>
+        <BuyingOptions />
       </MainContentWrapper>
     </Fragment>
   );
