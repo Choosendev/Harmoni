@@ -7,7 +7,7 @@ const PurchaseReview = () => {
     <Fragment>
       <MainContentWrapper>
         <div className='pt-20 px-4 sm:px-10 lg:px-24 m-auto'>
-          <h1 className='pb-10'>Review</h1>
+          <h1 className='pb-10 text-3xl'>Review</h1>
           <div>
             <div className='flex gap-3 items-start'>
               {/* IMAGE */}
@@ -20,11 +20,13 @@ const PurchaseReview = () => {
 
             {/* MUSIC PROGRESS BAR */}
 
-            <div>
+            <div className='py-2.5 px-4 mt-10'>
               <AudioPlayer />
               <audio controls autoplay class='audio-player'>
-                <source src='horse.ogg' type='audio/ogg' />
-                <source src='horse.mp3' type='audio/mpeg' />
+                <source
+                  src='http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3'
+                  type='audio/mpeg'
+                />
               </audio>
             </div>
           </div>
