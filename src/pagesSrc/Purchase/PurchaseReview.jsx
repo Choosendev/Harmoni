@@ -13,9 +13,15 @@ const PurchaseReview = () => {
             <div className='flex gap-3 items-start'>
               {/* IMAGE */}
               <div className='w-36 h-36 bg-sky-300 rounded-lg'></div>
-              <div>
+              <div className='flex flex-col gap-4'>
                 <p>Type: Hip Hop</p>
                 <p>Wintspread</p>
+                <p className='text-sm text-[#E2E2E2]'>
+                  beat by Winifred <span>@drew-chidi</span>
+                </p>
+                <p className='text-sm text-[#E2E2E2]'>
+                  released on 23 November 2022
+                </p>
               </div>
             </div>
 
