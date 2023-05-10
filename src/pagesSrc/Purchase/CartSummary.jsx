@@ -3,7 +3,7 @@ import Button from '../../components/Button';
 
 const CartSummary = () => {
   return (
-    <div className='p-4 bg-[#1b1b1b] mb-8 md:mb-6'>
+    <div className='p-4 bg-[#1b1b1b] mb-8 md:mb-6 xl:p-6'>
       <h2 className='heading-2 mb-9'>Cart summary</h2>
       <div className='flex flex-col gap-6 mb-4'>
         <div className='flex justify-between items-center'>

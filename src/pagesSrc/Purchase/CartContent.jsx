@@ -5,17 +5,21 @@ import CartSummary from './CartSummary';
 
 const CartContent = () => {
   return (
-    <MainContentWrapper classname='pt-[88px] lg:pt-[168px]'>
-      <h1 className='heading-2 mb-8'>Cart review</h1>
+    <div className='pt-[88px] lg:pt-[168px] px-4 sm:px-10 md:px-24 xl:px-[100px] w-full'>
+      <div className=''>
+        <h1 className='heading-2 mb-8'>Cart review</h1>
 
-      <div className='xl:flex xl:gap-7'>
-        {/* Cart Review */}
-        <CartReview />
+        <div className='lg:flex lg:gap-4 xl:gap-7 justify-center'>
+          {/* Cart Review */}
+          <CartReview />
 
-        {/* CART SUMMARY */}
-        <CartSummary />
+          {/* CART SUMMARY */}
+          <CartSummary />
+
+          {/* RECENTLY VIEWED */}
+        </div>
       </div>
-    </MainContentWrapper>
+    </div>
   );
 };
 
