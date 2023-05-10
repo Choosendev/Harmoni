@@ -1,11 +1,11 @@
-import React from 'react';
-import CartReview from '@src/pagesSrc/Purchase/CartReview';
+import Layout from '@src/components/Layout';
+import CartContent from '@src/pagesSrc/Purchase/CartContent';
 
 const Cart = () => {
   return (
     <div>
       <Layout page='purchase'>
-        <CartReview />
+        <CartContent />
       </Layout>
     </div>
   );
