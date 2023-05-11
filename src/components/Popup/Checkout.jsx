@@ -1,11 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { Formik } from 'formik';
-
-import { Icon } from '../../Icons';
-import ControlledModal from '../../Modal/ControlledModal';
-import InputBox from '../../InputBox';
-import TextArea from '../../InputBox/TextArea';
+// import { Icon } from '@src/components/Icons/Icon';
+import ControlledModal from '@src/components/Modal/ControlledModal';
+import InputBox from '@src/components/InputBox';
+import TextArea from '@src/components/InputBox/TextArea';
 
 const Checkout = ({ close, isEdit, action, data, loader, id }) => {
   const [open, setOpen] = useState(false);
@@ -20,16 +19,16 @@ const Checkout = ({ close, isEdit, action, data, loader, id }) => {
   };
 
   return (
-    <div>
+    <div className=''>
       <div
         className='bg-primary hover:bg-white hover:border hover:border-primary hover:text-primary px-3 py-2 text-white rounded-lg cursor-pointer'
         onClick={() => setOpen((o) => !o)}
       >
-        + New Tickets
+        CHECKOUT
       </div>
       <ControlledModal open={open} closeModal={closeModal}>
         <div className='bg-grey-bg max-h-[90vh] overflow-auto'>
-          <div className='flex pl-10 pr-6 justify-between items-center sticky z-50 top-0 bg-white border-b border-b-grey-input'>
+          {/* <div className='flex pl-10 pr-6 justify-between items-center sticky z-50 top-0 bg-white border-b border-b-grey-input'>
             <p className='text-[16px] font-semibold'>
               {isEdit ? 'Edit' : 'New'} Ticket
             </p>
@@ -41,27 +40,9 @@ const Checkout = ({ close, isEdit, action, data, loader, id }) => {
                 <Icon width='24' height='24' id='close-red-icon' />
               </div>
             </div>
-          </div>
+          </div> */}
           <div className='px-10'>
-            {/* {isLoading ? (
-              <div className="py-[14px] px-[21px] w-[500px]">
-                <LoadingSpinner />
-              </div>
-            ) : ( */}
-            <Formik
-              onSubmit={handleSubmit}
-              // validationSchema={UserProfileSchema}
-              enableReinitialize
-              initialValues={
-                {
-                  //   ...initialUserProfile,
-                  //   first_name: userData?.data.first_name,
-                  //   last_name: userData?.data.last_name,
-                  //   email: userData?.data.email,
-                  //   role_id: userData?.data.roles?.id?.toString(),
-                }
-              }
-            >
+            <Formik onSubmit={handleSubmit} enableReinitialize>
               {({
                 values,
                 setFieldTouched,
@@ -144,7 +125,6 @@ const Checkout = ({ close, isEdit, action, data, loader, id }) => {
                 </>
               )}
             </Formik>
-            {/* )} */}
           </div>
         </div>
       </ControlledModal>

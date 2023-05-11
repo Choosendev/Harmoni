@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../components/Button';
+import Checkout from '../../components/Popup/Checkout';
 
 const CartSummary = () => {
   return (
@@ -15,7 +16,7 @@ const CartSummary = () => {
           <p>NGN 0.00</p>
         </div>
         <div className='flex justify-between items-center text-secondary mt-3'>
-          <p>Total Net</p>
+          <p>Net</p>
           <p>NGN 50,000</p>
         </div>
       </div>
@@ -24,6 +25,7 @@ const CartSummary = () => {
         <Button page='#' classname='mt-4 block'>
           CHECKOUT
         </Button>
+        <Checkout />
       </div>
     </div>
   );

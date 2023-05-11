@@ -9,7 +9,7 @@ const CartContent = () => {
       <div className=''>
         <h1 className='heading-2 mb-8'>Cart review</h1>
 
-        <div className='lg:flex lg:gap-4 xl:gap-7 justify-center'>
+        <div className='lg:flex lg:gap-4 xl:gap-7 justify-between'>
           {/* Cart Review */}
           <CartReview />
 

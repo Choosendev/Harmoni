@@ -139,7 +139,7 @@ const Navbar = ({ page }) => {
                 </li>
                 <li className=''>
                   <Link
-                    href='/sign-in'
+                    href='/signin'
                     // className={`${
                     //   selectedPage === lowerCasePage ? 'text-blue' : ''
                     // } hover:text-blue-50`}
@@ -150,7 +150,7 @@ const Navbar = ({ page }) => {
                 </li>
                 <li className=''>
                   <Link
-                    href='/sign-up'
+                    href='/signup'
                     className='px-4 py-2 text-xs border rounded-lg'
                     // className={`${
                     //   selectedPage === lowerCasePage ? 'text-blue' : ''
@@ -292,7 +292,7 @@ const Navbar = ({ page }) => {
             </li>
             <li className=''>
               <Link
-                href='/sign-in'
+                href='/signin'
                 // className={`${
                 //   selectedPage === lowerCasePage ? 'text-blue' : ''
                 // } hover:text-blue-50`}
@@ -303,7 +303,7 @@ const Navbar = ({ page }) => {
             </li>
             <li className=''>
               <Link
-                href='/sign-up'
+                href='/signup'
                 className='px-4 py-2 text-xs border rounded-lg'
                 // className={`${
                 //   selectedPage === lowerCasePage ? 'text-blue' : ''
