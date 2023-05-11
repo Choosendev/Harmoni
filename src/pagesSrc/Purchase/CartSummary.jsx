@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../components/Button';
-import Checkout from '../../components/Popup/Checkout';
+import Checkout from '../../components/Popup/SuccessCheck';
 
 const CartSummary = () => {
   return (
@@ -22,10 +22,9 @@ const CartSummary = () => {
       </div>
       <div>
         <p>You are checking out as @andybanny, not you? logout</p>
-        <Button page='#' classname='mt-4 block'>
+        <Button page='purchase/checkout' classname='mt-4 block'>
           CHECKOUT
         </Button>
-        <Checkout />
       </div>
     </div>
   );

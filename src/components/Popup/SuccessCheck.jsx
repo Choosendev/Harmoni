@@ -6,7 +6,7 @@ import ControlledModal from '@src/components/Modal/ControlledModal';
 import InputBox from '@src/components/InputBox';
 import TextArea from '@src/components/InputBox/TextArea';
 
-const Checkout = ({ close, isEdit, action, data, loader, id }) => {
+const SuccessCheck = ({ close, isEdit, action, data, loader, id }) => {
   const [open, setOpen] = useState(false);
 
   const closeModal = () => {
@@ -132,4 +132,4 @@ const Checkout = ({ close, isEdit, action, data, loader, id }) => {
   );
 };
 
-export default Checkout;
+export default SuccessCheck;
