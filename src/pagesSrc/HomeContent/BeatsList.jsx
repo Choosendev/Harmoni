@@ -17,6 +17,7 @@ function BeatsList() {
           <ul className='flex justify-between items-center mb-12'>
             <li>All</li>
             <li>Afro-beats</li>
+            <li>HIPHOP</li>
             <li>R&B</li>
             <li>
               <select placeholder='Filter' className='text-black'>
@@ -60,7 +61,7 @@ function BeatsList() {
 
           {/* PRICE AND CTA BUTTON */}
           <div className='flex justify-between items-center mb-5'>
-            <p>NGN 90,000</p>
+            <p>USD 120</p>
             <Button page='cart'> BUY NOW</Button>
           </div>
 

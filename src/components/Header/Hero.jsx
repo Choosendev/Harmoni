@@ -9,10 +9,10 @@ const Hero = () => {
         <div className='m-auto text-center'>
           <div className='px-12 mb-4 sm:mb-8'>
             <h1 className='mb-4 font-semibold text-xl tracking-tighter md:text-2xl lg:text-4xl'>
-              Find and upload trending beat for music production
+              Find and upload trending beat as NFT for music production
             </h1>
             <p className='px-7 lg:text-xl'>
-              Preview, upload, buy beats and vocals for you projects
+              Preview, upload, buy beats,content, arts, NFTs and vocals for you projects
             </p>
           </div>
 
@@ -31,7 +31,7 @@ const Hero = () => {
                 <FiSearch size={20} color='#fff' />
               </div>
             </div>
-            <Button page='upload'>UPLOAD YOUR BEATS</Button>
+            <Button page='upload'>UPLOAD YOUR CONTENTS</Button>
           </div>
         </div>
       </div>

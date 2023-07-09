@@ -34,11 +34,11 @@ const OrdersList = () => {
                       </span>
                     </p>
                     <p className='mb-4'>Premium License</p>
-                    <p className='heading-3'>24-12-2022</p>
+                    <p className='heading-3'>24-06-2023</p>
                   </div>
                 </div>
                 <div className='flex flex-col gap-4 justify-between items-end'>
-                  <p className='heading-2'>NGN 200,000</p>
+                  <p className='heading-2'>USD 260</p>
                   <Button buttonType='submit'>Download again</Button>
                 </div>
               </div>

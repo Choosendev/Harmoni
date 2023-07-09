@@ -52,7 +52,7 @@ const Navbar = ({ page }) => {
               height={24}
               width={17}
             />
-            <p>Kulture</p>
+            <p>Harmoni</p>
           </div>
           <div>
             {/* HAMBURGER MENU */}
@@ -180,7 +180,7 @@ const Navbar = ({ page }) => {
                         // } hover:text-blue-50`}
                         // onClick={() => setSelectedPage(lowerCasePage)}
                       >
-                        Hi, Muyiwa
+                        Hi, User
                       </Link>
                       <div className='ml-[10px] flex items-center'>
                         {showProfileOptions ? (
@@ -333,7 +333,7 @@ const Navbar = ({ page }) => {
                     // } hover:text-blue-50`}
                     // onClick={() => setSelectedPage(lowerCasePage)}
                   >
-                    Hi, Muyiwa
+                    Hi, User
                   </Link>
                   <div className='ml-[10px] flex items-center'>
                     {showProfileOptions ? <BsChevronDown /> : <BsChevronUp />}

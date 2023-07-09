@@ -19,7 +19,7 @@ const SalesCard = () => {
         <div>
           <div className='flex flex-col gap-2 mb-6'>
             <p className=''>Total amount</p>
-            <p className='text-lg'>NGN 90,000</p>
+            <p className='text-lg'>USD 90</p>
           </div>
           <div className='flex flex-col gap-2 mb-8'>
             <p className=''>Total sales</p>

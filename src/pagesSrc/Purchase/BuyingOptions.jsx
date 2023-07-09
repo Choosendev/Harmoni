@@ -8,7 +8,7 @@ const BuyingOptions = () => {
       <div>
         <div className='p-2 bg-[#1B1B1B] max-w-[160px] tracking-tighter flex flex-col gap-2'>
           <p className='tracking-tighter'>Basic WAV LEASE</p>
-          <p className='text-sm'>NGN 15,000</p>
+          <p className='text-sm'>USD 70</p>
           <p className='text-xs'>MP3 AND WAV</p>
         </div>
       </div>
@@ -18,7 +18,7 @@ const BuyingOptions = () => {
         <div>
           <h5>Terms of Usage</h5>
           <p>Total:</p>
-          <p>NGN 1,000,000</p>
+          <p>USD 10,000</p>
         </div>
         <div className='text-left w-60 flex flex-col gap-9 md:flex-row md:min-w-[470px]'>
           <Button buttonType='submit' classname='w-full'>

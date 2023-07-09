@@ -31,13 +31,13 @@ const SavedItemsList = () => {
                       @mafikozolo
                     </span>
                   </p>
-                  <p>Released on 24th December</p>
+                  <p>Released on 24th June</p>
                 </div>
               </div>
             </div>
 
             <div className='inline-flex justify-between gap-12'>
-              <p>NGN 200,000</p>
+              <p>USD 260</p>
               <Button buttonType='submit'>BUY NOW</Button>
             </div>
           </div>

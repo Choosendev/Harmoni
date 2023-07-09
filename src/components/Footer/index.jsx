@@ -7,7 +7,7 @@ const Footer = () => {
         <p>Terms of policy</p>
         <p>Privacy policy</p>
         <p>Contact</p>
-        <p>copyright@2022</p>
+        <p>copyright@2023</p>
       </div>
     </section>
   );

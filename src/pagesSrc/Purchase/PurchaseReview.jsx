@@ -20,7 +20,7 @@ const PurchaseReview = () => {
                   beat by Winifred <span>@drew-chidi</span>
                 </p>
                 <p className='text-sm text-[#E2E2E2]'>
-                  released on 23 November 2022
+                  released on 13 July 2023
                 </p>
               </div>
             </div>

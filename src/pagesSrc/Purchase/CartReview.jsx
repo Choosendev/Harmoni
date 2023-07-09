@@ -24,7 +24,7 @@ const CartReview = () => {
           </div>
 
           <div className='flex gap-4 items-center'>
-            <p className='whitespace-nowrap'>NGN 200,000</p>
+            <p className='whitespace-nowrap'>USD 260</p>
             <ReviewLicense classname='' />
           </div>
         </div>

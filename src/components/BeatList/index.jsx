@@ -60,7 +60,7 @@ function BeatList() {
 
           {/* PRICE AND CTA BUTTON */}
           <div className='flex justify-between items-center mb-5'>
-            <p>NGN 90,000</p>
+            <p>USD 150</p>
             <Button page='cart'> BUY NOW</Button>
             <button>
               <RiDeleteBinLine width={24} color='red' />

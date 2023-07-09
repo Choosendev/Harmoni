@@ -9,7 +9,7 @@ const CartSummary = () => {
       <div className='flex flex-col gap-6 mb-4'>
         <div className='flex justify-between items-center'>
           <p>Total Gross</p>
-          <p>NGN 50,000</p>
+          <p>USD 100</p>
         </div>
         <div className='flex justify-between items-center'>
           <p>Discount</p>
@@ -17,7 +17,7 @@ const CartSummary = () => {
         </div>
         <div className='flex justify-between items-center text-secondary mt-3'>
           <p>Net</p>
-          <p>NGN 50,000</p>
+          <p>USD 100</p>
         </div>
       </div>
       <div>
