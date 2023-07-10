@@ -31,6 +31,10 @@ contract HarmoniMain is IERC1155Receiver {
 		usdcContract = _usdcContract;
 	}
 
+	function beatsBalance(uint48 _tokenId) external view returns(uint256 _balances) {
+		return IBeatsNFT(beatsNFT).balanceOf(address(this), _tokenId);
+	}
+
 	function beatPrice(uint48 _tokenId) external view returns(uint256 _beatPrice) {
 		_beatPrice = uint256(beatInfo[_tokenId].beatPrice) * IERC20Decimals(usdcContract).decimals() / 10**2; // parse to same decimals with USDC
 	}
