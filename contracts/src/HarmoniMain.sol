@@ -108,6 +108,7 @@ contract HarmoniMain is IERC1155Receiver {
 		uint256 toWithdraw = creatorRevenues[_creator];
 		require(toWithdraw > 0, "No funds to withdraw");
 
+		creatorRevenues[_creator] = 0;
 		IERC20Decimals(usdcContract).transfer(_creator, toWithdraw);
 
 		emit Withdrawed(_creator, toWithdraw);
