@@ -12,7 +12,7 @@ contract HarmoniMain is IERC1155Receiver {
 	address public usdcContract;
 	uint48 public nextId; // 2^48 able to store 281,474,976,710,655 of beats;
 
-	struct Beats {
+	struct Beat {
 		uint32 beatPrice; // 4,294,967,295 / 2 = able to store max price of 42,949,672.95 considering max 2 decimals for stablecoin payment
 		uint64 amount; // up to 18,446,744,073,709,551,615 max quantity of beats available for sale
 		uint8 creatorsNumber; // numbers of collaborators
@@ -20,11 +20,11 @@ contract HarmoniMain is IERC1155Receiver {
 		uint8[] shares; // total must = 100 (100%)
 	}
 
-	mapping(uint256 => Beats) public beatInfo;
+	mapping(uint256 => Beat) public beatInfo;
 	mapping(address => uint48[]) public beatsCreated;
 	mapping(address => uint256) public creatorRevenues;
 
-	event BeatCreated(Beats beatInfo);
+	event BeatCreated(uint48 tokenId, Beat beatInfo);
 	event BeatsPurchased(address buyer, uint48 beatId, uint256 totalPayments);
 	event Withdrawed(address receiver, uint256 amount);
 
@@ -38,7 +38,15 @@ contract HarmoniMain is IERC1155Receiver {
 	}
 
 	function beatPrice(uint48 _tokenId) external view returns(uint256 _beatPrice) {
-		_beatPrice = uint256(beatInfo[_tokenId].beatPrice) * IERC20Decimals(usdcContract).decimals() / 10**2; // parse to same decimals with USDC
+		_beatPrice = uint256(beatInfo[_tokenId].beatPrice) * 10**IERC20Decimals(usdcContract).decimals() / 10**2; // parse to same decimals with USDC
+	}
+
+	function beatInfoView(uint48 _tokenId) external view returns(Beat memory _beatInfo) {
+		_beatInfo = beatInfo[_tokenId];
+	}
+
+	function beatsCreatedView(address addr) external view returns(uint48[] memory _beatsCreated) {
+		_beatsCreated = beatsCreated[addr];
 	}
 
     /**
@@ -76,10 +84,11 @@ contract HarmoniMain is IERC1155Receiver {
 		tokenId = nextId;
 		beatInfo[tokenId].beatPrice = _beatPrice;
 		beatInfo[tokenId].amount = _amount;
+		beatInfo[tokenId].creatorsNumber = _creatorsNumber;
 
 		for (uint8 i; i < _creatorsNumber; ) {
-			beatInfo[tokenId].creators[i] = _creators[i];
-			beatInfo[tokenId].shares[i] = _shares[i];
+			beatInfo[tokenId].creators.push(_creators[i]);
+			beatInfo[tokenId].shares.push(_shares[i]);
 			beatsCreated[_creators[i]].push(tokenId);
 			unchecked {
 				i++;
@@ -88,7 +97,7 @@ contract HarmoniMain is IERC1155Receiver {
 
 		IBeatsNFT(beatsNFT).mint(address(this), uint256(tokenId), uint256(_amount), _uri);
 
-		emit BeatCreated(beatInfo[tokenId]);
+		emit BeatCreated(tokenId, beatInfo[tokenId]);
 		nextId++;
 	}
 
@@ -106,7 +115,7 @@ contract HarmoniMain is IERC1155Receiver {
 		require(IBeatsNFT(beatsNFT).balanceOf(address(this), _tokenId) >= _quantity, "Beats sold out");
 		require(IERC20Decimals(usdcContract).allowance(msg.sender, address(this)) >= _payments, "No approval to spend");
 
-		uint256 _beatPrice = uint256(beatInfo[_tokenId].beatPrice) * IERC20Decimals(usdcContract).decimals() / 10**2; // parse to same decimals with USDC
+		uint256 _beatPrice = uint256(beatInfo[_tokenId].beatPrice) * 10**IERC20Decimals(usdcContract).decimals() / 10**2; // parse to same decimals with USDC
 		uint256 toPay = _beatPrice * _quantity;
 		require(_payments >= toPay, "Not enough payments");
 

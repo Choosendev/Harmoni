@@ -20,6 +20,7 @@ contract HarmoniScript is Script {
         beatsNFT = new BeatsNFT();
         mockUSDC = new MockUSDC("USDC", "USDC");
         harmoni = new HarmoniMain(address(beatsNFT), address(mockUSDC));
+        beatsNFT.initialize(address(harmoni));
         vm.stopBroadcast();
     }
 }
