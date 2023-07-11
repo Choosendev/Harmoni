@@ -13,16 +13,18 @@ contract HarmoniMain is IERC1155Receiver {
 	uint48 public nextId; // 2^48 able to store 281,474,976,710,655 of beats;
 
 	struct Beats {
-		uint32 beatPrice; // 4,294,967,295 / 2 = able to store max price of 42,949,672.95 considering max 2 decimals for stablecoin payment.
-		uint64 amount; // up to 18,446,744,073,709,551,615 max quantity of beats available for sale.
-		address creator;
+		uint32 beatPrice; // 4,294,967,295 / 2 = able to store max price of 42,949,672.95 considering max 2 decimals for stablecoin payment
+		uint64 amount; // up to 18,446,744,073,709,551,615 max quantity of beats available for sale
+		uint8 creatorsNumber; // numbers of collaborators
+		address[] creators;
+		uint8[] shares; // total must = 100 (100%)
 	}
 
 	mapping(uint256 => Beats) public beatInfo;
 	mapping(address => uint48[]) public beatsCreated;
 	mapping(address => uint256) public creatorRevenues;
 
-	event BeatCreated(Beats beatInfo, uint48[] beatsCreated);
+	event BeatCreated(Beats beatInfo);
 	event BeatsPurchased(address buyer, uint48 beatId, uint256 totalPayments);
 	event Withdrawed(address receiver, uint256 amount);
 
@@ -32,11 +34,15 @@ contract HarmoniMain is IERC1155Receiver {
 	}
 
 	function beatsBalance(uint48 _tokenId) external view returns(uint256 _balances) {
-		return IBeatsNFT(beatsNFT).balanceOf(address(this), _tokenId);
+		_balances = IBeatsNFT(beatsNFT).balanceOf(address(this), _tokenId);
 	}
 
 	function beatPrice(uint48 _tokenId) external view returns(uint256 _beatPrice) {
 		_beatPrice = uint256(beatInfo[_tokenId].beatPrice) * IERC20Decimals(usdcContract).decimals() / 10**2; // parse to same decimals with USDC
+	}
+
+	function beatInfoView(uint48 _tokenId) external view returns(Beats memory _beatInfo) {
+		_beatInfo = beatInfo[_tokenId];
 	}
 
     /**
@@ -45,21 +51,49 @@ contract HarmoniMain is IERC1155Receiver {
      *
      * @param _beatPrice Price of beat in 2 decimals (i.e. $1.99 == 199)
      * @param _amount Quantity of beats to sell
+     * @param _creators Creators array
+	 * @param _shares Revenue shares array
+	 * @param _creatorsNumber Number of collaborators
      * @return tokenId Beat ID created
      */
-	function createBeat(uint32 _beatPrice, uint32 _amount, string calldata _uri) external returns(uint48) {
-		uint48 tokenId = nextId;
-		beatInfo[tokenId] = Beats({
-			beatPrice: _beatPrice, // 2 decimals number (i.e. $1.99 == 199)
-			amount: _amount,
-			creator: msg.sender
-		});
-		beatsCreated[msg.sender].push(tokenId);
+	function createBeat(
+		uint32 _beatPrice, 
+		uint32 _amount, 
+		address[] memory _creators, 
+		uint8[] memory _shares, 
+		uint8 _creatorsNumber,
+		string calldata _uri
+		) external returns(uint48 tokenId) {
+		require(_creatorsNumber == _creators.length, "Creators number incorrect");
+		require(_creatorsNumber == _shares.length, "Shares number incorrect");
+
+		// Check if revenue shares are correctly allocated.
+		uint8 sharesCheck;
+		for (uint8 i; i < _creatorsNumber; ) {
+			sharesCheck += _shares[i];
+			unchecked {
+				i++;
+			}
+		}
+		require(sharesCheck == 100, "Shares are not 100% in total");
+
+		tokenId = nextId;
+		beatInfo[tokenId].beatPrice = _beatPrice;
+		beatInfo[tokenId].amount = _amount;
+
+		for (uint8 i; i < _creatorsNumber; ) {
+			beatInfo[tokenId].creators[i] = _creators[i];
+			beatInfo[tokenId].shares[i] = _shares[i];
+			beatsCreated[_creators[i]].push(tokenId);
+			unchecked {
+				i++;
+			}
+		}
+
 		IBeatsNFT(beatsNFT).mint(address(this), uint256(tokenId), uint256(_amount), _uri);
 
-		emit BeatCreated(beatInfo[tokenId], beatsCreated[msg.sender]);
+		emit BeatCreated(beatInfo[tokenId]);
 		nextId++;
-		return (tokenId);
 	}
 
     /**
@@ -82,7 +116,13 @@ contract HarmoniMain is IERC1155Receiver {
 
 		bool success = IERC20Decimals(usdcContract).transferFrom(msg.sender, address(this), _payments);
 		require(success, "Payment failed");
-		creatorRevenues[beatInfo[_tokenId].creator] += _payments;
+
+		for (uint8 i; i < beatInfo[_tokenId].creatorsNumber; ) {
+			creatorRevenues[beatInfo[_tokenId].creators[i]] += _payments * beatInfo[_tokenId].shares[i] / 100;
+			unchecked {
+				i++;
+			}
+		}
 
 		IBeatsNFT(beatsNFT).safeTransferFrom(
         	address(this),
@@ -104,7 +144,7 @@ contract HarmoniMain is IERC1155Receiver {
      * @param _creator Creator address
      * @return bool Operation success
      */
-	function withdrawRevenues(address _creator) external returns(bool) {
+	function withdrawRevenues(address _creator) public returns(bool) {
 		uint256 toWithdraw = creatorRevenues[_creator];
 		require(toWithdraw > 0, "No funds to withdraw");
 
@@ -113,6 +153,23 @@ contract HarmoniMain is IERC1155Receiver {
 
 		emit Withdrawed(_creator, toWithdraw);
 
+		return true;
+	}
+
+    /**
+     * @dev Batch withdrawal all creators' funds to creators.
+	 * @notice Anyone can call this function but only creators will be receiving funds.
+     *
+     * @param _creators Creators address
+     * @return bool Operation success
+     */
+	function batchWithdrawRevenues(address[] memory _creators) external returns(bool) {
+		for (uint8 i; i < _creators.length; ) {
+			withdrawRevenues(_creators[i]);
+			unchecked {
+				i++;
+			}
+		}
 		return true;
 	}
 
