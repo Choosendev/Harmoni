@@ -41,10 +41,6 @@ contract HarmoniMain is IERC1155Receiver {
 		_beatPrice = uint256(beatInfo[_tokenId].beatPrice) * IERC20Decimals(usdcContract).decimals() / 10**2; // parse to same decimals with USDC
 	}
 
-	function beatInfoView(uint48 _tokenId) external view returns(Beats memory _beatInfo) {
-		_beatInfo = beatInfo[_tokenId];
-	}
-
     /**
      * @dev Mint new beats to this address.
 	 * @notice Create new beat and sell from Harmoni main contract.
