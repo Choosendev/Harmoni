@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "./BeatsNFT.sol";
 import "./interfaces/IBeatsNFT.sol";
-import "openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol";
 import "./interfaces/IERC20Decimals.sol";
+import "openzeppelin-contracts/contracts/token/ERC1155/IERC1155Receiver.sol";
 
 contract HarmoniMain is IERC1155Receiver {
 
