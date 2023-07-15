@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const Beat = require('../../server/models/Beat');
+const Beat = require('../models/Beat');
 
 // @desc    Get all bootcamps
 // @route   GET /api/v1/bootcamps
