@@ -1,0 +1,92 @@
+{
+    "contractName": "BeatsNFT",
+    "abi": [
+      {
+        "name": "constructor",
+        "type": "constructor",
+        "inputs": [],
+        "outputs": []
+      },
+      {
+        "name": "initialize",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "_harmoniMain",
+            "type": "address"
+          }
+        ],
+        "outputs": []
+      },
+      {
+        "name": "mint",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "name": "_uri",
+            "type": "string"
+          }
+        ],
+        "outputs": []
+      },
+      {
+        "name": "uri",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "uri",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "_beforeTokenTransfer",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "operator",
+            "type": "address"
+          },
+          {
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "name": "ids",
+            "type": "uint256[]"
+          },
+          {
+            "name": "amounts",
+            "type": "uint256[]"
+          },
+          {
+            "name": "data",
+            "type": "bytes"
+          }
+        ],
+        "outputs": []
+      }
+    ]
+  }

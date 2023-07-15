@@ -1,0 +1,315 @@
+[
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_tokenId",
+          "type": "uint48"
+        }
+      ],
+      "name": "beatsBalance",
+      "outputs": [
+        {
+          "name": "_balances",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_tokenId",
+          "type": "uint48"
+        }
+      ],
+      "name": "beatPrice",
+      "outputs": [
+        {
+          "name": "_beatPrice",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_tokenId",
+          "type": "uint48"
+        }
+      ],
+      "name": "beatInfoView",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "beatPrice",
+              "type": "uint32"
+            },
+            {
+              "name": "amount",
+              "type": "uint64"
+            },
+            {
+              "name": "creatorsNumber",
+              "type": "uint8"
+            },
+            {
+              "name": "creators",
+              "type": "address[]"
+            },
+            {
+              "name": "shares",
+              "type": "uint8[]"
+            }
+          ],
+          "name": "_beatInfo",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "beatsCreatedView",
+      "outputs": [
+        {
+          "name": "_beatsCreated",
+          "type": "uint48[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_beatPrice",
+          "type": "uint32"
+        },
+        {
+          "name": "_amount",
+          "type": "uint32"
+        },
+        {
+          "name": "_creators",
+          "type": "address[]"
+        },
+        {
+          "name": "_shares",
+          "type": "uint8[]"
+        },
+        {
+          "name": "_creatorsNumber",
+          "type": "uint8"
+        },
+        {
+          "name": "_uri",
+          "type": "string"
+        }
+      ],
+      "name": "createBeat",
+      "outputs": [
+        {
+          "name": "tokenId",
+          "type": "uint48"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "external",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_tokenId",
+          "type": "uint48"
+        },
+        {
+          "name": "_payments",
+          "type": "uint256"
+        },
+        {
+          "name": "_quantity",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyBeat",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "external",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_creator",
+          "type": "address"
+        }
+      ],
+      "name": "withdrawRevenues",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "external",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_creators",
+          "type": "address[]"
+        }
+      ],
+      "name": "batchWithdrawRevenues",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "external",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_beatsNFT",
+          "type": "address"
+        },
+        {
+          "name": "_usdcContract",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "name": "tokenId",
+          "type": "uint48"
+        },
+        {
+          "components": [
+            {
+              "name": "beatPrice",
+              "type": "uint32"
+            },
+            {
+              "name": "amount",
+              "type": "uint64"
+            },
+            {
+              "name": "creatorsNumber",
+              "type": "uint8"
+            },
+            {
+              "name": "creators",
+              "type": "address[]"
+            },
+            {
+              "name": "shares",
+              "type": "uint8[]"
+            }
+          ],
+          "name": "beatInfo",
+          "type": "tuple"
+        }
+      ],
+      "name": "BeatCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "name": "beatId",
+          "type": "uint48"
+        },
+        {
+          "name": "totalPayments",
+          "type": "uint256"
+        }
+      ],
+      "name": "BeatsPurchased",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "name": "receiver",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Withdrawed",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint48"
+        }
+      ],
+      "name": "beatInfo",
+      "outputs": [
+        {
+          "name": "beatPrice",
+          "type": "uint32"
+        },
+        {
+          "name": "amount",
+          "type": "uint64"
+        },
+        {
+          "name": "creatorsNumber",
+          "type": "uint8"
+        }]}
+        ]
