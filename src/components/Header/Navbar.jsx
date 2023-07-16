@@ -48,7 +48,7 @@ const Navbar = ({ page }) => {
           <div className='flex gap-2'>
             <Image
               src='/assets/images/kulture-logo.png'
-              alt='kulture'
+              alt='harmoni'
               height={24}
               width={17}
             />
