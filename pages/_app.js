@@ -4,13 +4,21 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import contract from './contractABI/HarmonimainABI.json';
-import contract from './contractABI/BeatsNFTABI.json';
 import { useMoralis } from "react-moralis";
 import { ConnectButton } from "@web3uikit/web3";
 
 const contractAddress = "0xc8b19C1FE7c3C6a7F63588727d118049199aF10E";
 const abi = contract.abi;
-const { isWeb3Enabled } = useMoralis();
+const { isWeb3Enabled, chainId: chainIdHex } = useMoralis();
+const chainId = parseInt(chainIdHex).toString();
+const supportedChains = ["31337"];
+const { runContractFunction: get } = useWeb3Contract({
+  abi: HarmonimainABI.abi,
+  contractAddress: HarmonimainABIeContractAddress!,
+  functionName: "get",
+  params: {},
+});
+useEffect(() => {}, [isWeb3Enabled]);
 
 <MoralisProvider initializeOnMount={false}>
     <App />
@@ -20,14 +28,18 @@ function MyApp({ Component, pageProps }) {
     <div>
         <ConnectButton />
         {isWeb3Enabled ? (
-            <div>Welcome To Harmoni</div>
+            supportedChains.includes(chainId) ? (
+                <div>Welcome Harmoni</div>
+            ) : (
+                <p>{`Please switch to a supported chainId. The supported Chain Ids are: ${supportedChains}`}</p>
+            )
         ) : (
             <h1>
-                Make Sure MetaMask is installed and Account is Connected.
+                Make Sure Supported Wallet is installed and Account is Connected.
             </h1>
         )}
     </div>
-);
+  );
   return (
     // <ToastContainer>
 
