@@ -58,8 +58,8 @@ function MyApp({ Component, pageProps }) {
   // // );
   return (
     // <ToastContainer>
-        <Router>
-      <Switch>
+      //   <Router>
+      // <Switch>
     <Provider store={store}>
       <ToastContainer
         position='top-right'
@@ -75,9 +75,9 @@ function MyApp({ Component, pageProps }) {
       />
       <Component {...pageProps} />
     </Provider>
-    {/* //</Switch></ToastContainer> */}
-      </Switch>
-    </Router>
+    //{/* //</Switch></ToastContainer> */}
+    //   </Switch>
+    // </Router>
   );
 }
 
