@@ -160,6 +160,17 @@ const Navbar = ({ page }) => {
                     Signup
                   </Link>
                 </li>
+                <li className='px-4 py-2 text-xs border rounded-lg'>
+                  <Link
+                    href='/walletconnect'
+                    className={`${
+                    selectedPage === lowerCasePage ? 'text-blue' : ''
+                    } hover:text-blue-50`}
+                    onClick={() => setSelectedPage(lowerCasePage)}
+                  >
+                    WalleConnect
+                  </Link>
+                </li>
                 <li
                   className='flex item-center flex-col relative'
                   onClick={handleProfileOptions}
