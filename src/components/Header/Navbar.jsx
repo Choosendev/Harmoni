@@ -82,10 +82,10 @@ const Navbar = ({ page }) => {
                   </div>
                   <Link
                     href='/'
-                    // className={`${
-                    //   selectedPage === lowerCasePage ? 'text-blue' : ''
-                    // } hover:text-blue-50`}
-                    // onClick={() => setSelectedPage(lowerCasePage)}
+                    className={`${
+                    selectedPage === lowerCasePage ? 'text-blue' : ''
+                    } hover:text-blue-50`}
+                    onClick={() => setSelectedPage(lowerCasePage)}
                   >
                     Home
                   </Link>
@@ -95,11 +95,11 @@ const Navbar = ({ page }) => {
                     <BsCartDash />
                   </div>
                   <Link
-                    href='/'
-                    // className={`${
-                    //   selectedPage === lowerCasePage ? 'text-blue' : ''
-                    // } hover:text-blue-50`}
-                    // onClick={() => setSelectedPage(lowerCasePage)}
+                    href='/purchase/cart'
+                    className={`${
+                    selectedPage === lowerCasePage ? 'text-blue' : ''
+                    } hover:text-blue-50`}
+                    onClick={() => setSelectedPage(lowerCasePage)}
                   >
                     Cart
                   </Link>

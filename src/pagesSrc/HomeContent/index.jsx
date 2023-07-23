@@ -2,6 +2,7 @@ import React from 'react';
 import PopularUploads from './PopularUploads';
 import BeatsList from './BeatsList';
 import ListCardWrapper from './ListCardWrapper';
+import Link from 'next/link';
 
 const HomeContent = () => {
   return (
