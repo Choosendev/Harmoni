@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ConnectButton } from "@web3uikit/web3";
+import { BrowserRouter as Router, Switch, Route, Redirect,} from "react-router-dom";
 
 
 const { runContractFunction: get } = useWeb3Contract({
@@ -19,6 +20,8 @@ useEffect(() => {}, [isWeb3Enabled]);
 </MoralisProvider>
 function MyApp({ Component, pageProps }) {
   return (
+    <Router>
+      <Switch>
     <div>
         <ConnectButton />
         {isWeb3Enabled ? (
@@ -53,6 +56,8 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </Provider>
     // </ToastContainer>
+      </Switch>
+    </Router>
   );
 }
 
