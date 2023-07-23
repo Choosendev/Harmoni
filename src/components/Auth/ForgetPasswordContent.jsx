@@ -7,7 +7,7 @@ const ForgetPasswordContent = () => {
       <section id='sign-in'>
         <div>
           <h1 className='text-2xl mb-4'>Sign in</h1>
-          <p>Enter details to signin, dont have an account signup</p>
+          <p>Enter details to signin, dont have an forget signup</p>
           <form className='pt-6 flex flex-col gap-6'>
             <div className='flex flex-col gap-4'>
               <label htmlFor='email'>Email address</label>
