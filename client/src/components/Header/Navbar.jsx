@@ -152,10 +152,10 @@ const Navbar = ({ page }) => {
                   <Link
                     href='/signup'
                     className='px-4 py-2 text-xs border rounded-lg'
-                    // className={`${
-                    //   selectedPage === lowerCasePage ? 'text-blue' : ''
-                    // } hover:text-blue-50`}
-                    // onClick={() => setSelectedPage(lowerCasePage)}
+                    className={`${
+                    selectedPage === lowerCasePage ? 'text-blue' : ''
+                    } hover:text-blue-50`}
+                    onClick={() => setSelectedPage(lowerCasePage)}
                   >
                     Signup
                   </Link>
