@@ -1,5 +1,5 @@
 import Link from 'next/link';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
@@ -14,7 +14,7 @@ const Navbar = ({ page }) => {
   const [hideUploadList, setHideUploadList] = useState(true);
   const [showProfileOptions, setProfileOptions] = useState(false);
 
-  // const router = useRouter();
+  const router = useRouter();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
@@ -32,7 +32,7 @@ const Navbar = ({ page }) => {
   const handleLogout = () => {
     dispatch(logout());
     dispatch(reset());
-    // router.push('/');
+    router.push('/');
   };
 
   return (
@@ -259,7 +259,7 @@ const Navbar = ({ page }) => {
                 <BsCartDash />
               </div>
               <Link
-                href='/'
+                href='/purchase/cart'
                 // className={`${
                 //   selectedPage === lowerCasePage ? 'text-blue' : ''
                 // } hover:text-blue-50`}
@@ -276,7 +276,7 @@ const Navbar = ({ page }) => {
                 <RiFileUploadLine fill='white' color='white' />
                 <div className='flex items-center'>
                   <Link
-                    href='/'
+                    href='/user/upload'
                     // className={`${
                     //   selectedPage === lowerCasePage ? 'text-blue' : ''
                     // } hover:text-blue-50`}
@@ -324,6 +324,16 @@ const Navbar = ({ page }) => {
                 Signup
               </Link>
             </li>
+            <Link
+                    href='/walletconnect'
+                    className={`${
+                    selectedPage === lowerCasePage ? 'text-blue' : ''
+                    } hover:text-blue-50`}
+                    onClick={() => setSelectedPage(lowerCasePage)}
+                  >
+                    WalletConnect
+                  </Link>
+                </li>
             <li
               className='flex item-center flex-col relative'
               onClick={handleProfileOptions}
