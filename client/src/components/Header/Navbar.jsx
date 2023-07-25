@@ -101,7 +101,7 @@ const Navbar = ({ page }) => {
                     } hover:text-blue-50`}
                     onClick={() => setSelectedPage(lowerCasePage)}
                   >
-                    Cart
+                    Carte
                   </Link>
                 </li>
                 <li
@@ -145,7 +145,7 @@ const Navbar = ({ page }) => {
                     // } hover:text-blue-50`}
                     // onClick={() => setSelectedPage(lowerCasePage)}
                   >
-                    Signin
+                    SigninN
                   </Link>
                 </li>
                 <li className=''>
