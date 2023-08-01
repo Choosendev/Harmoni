@@ -138,10 +138,10 @@ const Navbar = ({ page }) => {
                   </div>
                   <Link
                     href='/'
-                    className={`${
-                    selectedPage === lowerCasePage ? 'text-blue' : ''
-                    } hover:text-blue-50`}
-                    onClick={() => setSelectedPage(lowerCasePage)}
+                    // className={`${
+                    // selectedPage === lowerCasePage ? 'text-blue' : ''
+                    // } hover:text-blue-50`}
+                    // onClick={() => setSelectedPage(lowerCasePage)}
                   >
                     Home
                   </Link>
@@ -152,10 +152,10 @@ const Navbar = ({ page }) => {
                   </div>
                   <Link
                     href='/purchase/cart'
-                    className={`${
-                    selectedPage === lowerCasePage ? 'text-blue' : ''
-                    } hover:text-blue-50`}
-                    onClick={() => setSelectedPage(lowerCasePage)}
+                    // className={`${
+                    // selectedPage === lowerCasePage ? 'text-blue' : ''
+                    // } hover:text-blue-50`}
+                    // onClick={() => setSelectedPage(lowerCasePage)}
                   >
                     Carte
                   </Link>
@@ -172,7 +172,7 @@ const Navbar = ({ page }) => {
                         // className={`${
                         //   selectedPage === lowerCasePage ? 'text-blue' : ''
                         // } hover:text-blue-50`}
-                        // onClick={() => setSelectedPage(lowerCasePage)}
+                        onClick={() => setSelectedPage(lowerCasePage)}
                       >
                         Upload
                       </Link>
@@ -201,16 +201,16 @@ const Navbar = ({ page }) => {
                     // } hover:text-blue-50`}
                     // onClick={() => setSelectedPage(lowerCasePage)}
                   >
-                    SigninN
+                    Signin
                   </Link>
                 </li>
                 <li className=''>
                   <Link
                     href='/signup'
-                    className={`${
-                    selectedPage === lowerCasePage ? 'text-blue' : ''
-                    } hover:text-blue-50`}
-                    onClick={() => setSelectedPage(lowerCasePage)}
+                    // className={`${
+                    // selectedPage === lowerCasePage ? 'text-blue' : ''
+                    // } hover:text-blue-50`}
+                    // onClick={() => setSelectedPage(lowerCasePage)}
                   >
                     Signup
                   </Link>
@@ -218,10 +218,10 @@ const Navbar = ({ page }) => {
                 <li className='px-4 py-2 text-xs border rounded-lg'>
                   <Link
                     href='/walletconnect'
-                    className={`${
-                    selectedPage === lowerCasePage ? 'text-blue' : ''
-                    } hover:text-blue-50`}
-                    onClick={() => setSelectedPage(lowerCasePage)}
+                    // className={`${
+                    // selectedPage === lowerCasePage ? 'text-blue' : ''
+                    // } hover:text-blue-50`}
+                    // onClick={() => setSelectedPage(lowerCasePage)}
                   >
                     WalletConnect
                   </Link>
